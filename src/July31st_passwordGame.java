@@ -58,7 +58,7 @@ public class July31st_passwordGame {
                 if (!x) {
                     win = false;
                     break;
-                };
+                }
             }
             listBuilder(list, urGuessList);
             display(list);
@@ -90,7 +90,7 @@ public class July31st_passwordGame {
         }
         return false;
     }
-    public static boolean rule_04(String Password) {;
+    public static boolean rule_04(String Password) {
         return Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE).matcher(Password).find();
     }
     public static boolean rule_05(String Password) {
