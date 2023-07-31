@@ -57,22 +57,17 @@ public class July31st_passwordGame {
             for (boolean x : urGuessList) {
                 if (!x) {
                     win = false;
+                    break;
                 };
             }
             listBuilder(list, urGuessList);
-
-            System.out.println(list);
-             display(list);
+            display(list);
         }
     }
 
     public static boolean rule_01(String Password) {
-        String editPass = Password;
-        editPass.replace(" ", "");
-        if (editPass.length() >= 5) {
-            return true;
-        }
-        return false;
+        Password.replace(" ", "");
+        return Password.length() >= 5;
     }
     public static boolean rule_02(String Password) {
         char[] passChars = Password.toCharArray();
@@ -131,7 +126,6 @@ public class July31st_passwordGame {
         }
 
         int posToPend = Math.max(streak, pendingPos);
-        System.out.println(posToPend);
 
         if (posToPend < list.size()) {
             editHash = new HashMap<>();
