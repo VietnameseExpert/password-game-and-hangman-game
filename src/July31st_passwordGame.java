@@ -184,6 +184,8 @@ public class July31st_passwordGame {
     }
 
     public static void display(ArrayList<HashMap<String, String>> list) {
+        ArrayList<String> displayList = new ArrayList<>();
+        int i = 0;
         int index =0;
         HashMap<String, String> miniHashmap = (HashMap<String, String>) list.get(index);
         while (!miniHashmap.get("Status").equals("pending")) {
@@ -191,13 +193,17 @@ public class July31st_passwordGame {
             if (miniHashmap.get("Correct").equals("true")) {
                 System.out.println(miniHashmap.get("Description") + "✅✅✅");
             }   else {
-                System.out.println(miniHashmap.get("Description")+ "❌❌❌");
+                displayList.add(i, miniHashmap.get("Description") + "❌❌❌");
+                i++;
             }
 
             index++;
             if (index == list.size()) {
                 break;
             }
+        }
+        for (String description : displayList) {
+            System.out.println(description);
         }
     }
 
