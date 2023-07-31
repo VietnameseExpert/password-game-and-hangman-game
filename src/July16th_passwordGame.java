@@ -36,6 +36,11 @@ public class July16th_passwordGame {
         word.put("Description", "The digits in your password must add up to 25.");
         list.add(word);
 
+//        word = new HashMap<>();
+//        word.put("s", "d");
+//        word.put("d", "f");
+//        list.add(word);
+
         while (true) {
             System.out.println("Enter password: ");
             urPassword = input.nextLine();
@@ -88,10 +93,7 @@ public class July16th_passwordGame {
                 skip();
             }
         }
-        if (sum == 25) {
-            return true;
-        }
-        return false;
+        return sum == 25;
     }
     public static void skip () {
     }
@@ -146,32 +148,53 @@ public class July16th_passwordGame {
             miniHashmap = (HashMap<String, String>) list.get(indexToPend);
         }
 
+        boolean end = false;
+        if (firstFalseIndex == list.size()) {
+            end = true;
+            miniHashmap = (HashMap<String, String>) list.get(list.size()-1);
+            if (urGuessList[list.size() - 1]) {
+                editHash.put("Status", "unlocked");
+            } else {
+                editHash.put("Status", "locked");
+            }
+            editHash.put("Description", miniHashmap.get("Description"));
+            list.set(list.size() - 1, editHash);
+        }
+
+        if (firstFalseIndex == list.size()) {
+            firstFalseIndex--;
+        }
+
         if (firstFalseIndex > indexToPend) {
             pendingPos = firstFalseIndex;
-        }   else {
+        } else {
             pendingPos = indexToPend;
         }
 
-        editHash = new HashMap<>();
-        miniHashmap = (HashMap<String, String>) list.get(pendingPos);
-        editHash.put("Status","pending");
-        editHash.put("Description", miniHashmap.get("Description"));
-        list.set(pendingPos, editHash);
+        if (!end) {
+            editHash = new HashMap<>();
+            miniHashmap = (HashMap<String, String>) list.get(pendingPos);
+            editHash.put("Status", "pending");
+            editHash.put("Description", miniHashmap.get("Description"));
+            list.set(pendingPos, editHash);
+        }
+
 
         int index = 0;
         miniHashmap = (HashMap<String, String>) list.get(index);
+        System.out.println(pendingPos);
         while (index < pendingPos) {
             editHash = new HashMap<>();
             if (urGuessList[index]) {
                 editHash.put("Status", "unlocked");
-            }   else {
+            } else {
                 editHash.put("Status", "locked");
             }
             editHash.put("Description", miniHashmap.get("Description"));
 
             list.set(index, editHash);
-
             index++;
+
             miniHashmap = (HashMap<String, String>) list.get(index);
         }
 

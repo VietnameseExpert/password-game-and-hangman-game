@@ -3,7 +3,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class July14th_passwordGame {
+public class
+July14th_passwordGame {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String urPassword;
