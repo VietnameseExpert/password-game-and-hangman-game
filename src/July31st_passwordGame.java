@@ -46,7 +46,7 @@ public class July31st_passwordGame {
             System.out.println("Enter password: ");
             urPassword = input.nextLine();
 
-            Boolean[] urGuessList = new Boolean[5];
+            Boolean[] urGuessList = new Boolean[list.size()];
             urGuessList[0] = rule_01(urPassword);
             urGuessList[1] = rule_02(urPassword);
             urGuessList[2] = rule_03(urPassword);
