@@ -47,6 +47,12 @@ public class July31st_passwordGame {
         word.put("Correct", "false");
         list.add(word);
 
+        word = new HashMap<>();
+        word.put("Status", "locked");
+        word.put("Description", "Your password must include a roman numeral.");
+        word.put("Correct", "false");
+        list.add(word);
+
         boolean win = false;
         while (!win) {
             System.out.println("Enter password: ");
@@ -59,6 +65,7 @@ public class July31st_passwordGame {
             urGuessList[3] = rule_04(urPassword);
             urGuessList[4] = rule_05(urPassword);
             urGuessList[5] = rule_06(urPassword);
+            urGuessList[6] = rule_07(urPassword);
 
             win = true;
             for (boolean x : urGuessList) {
@@ -134,20 +141,113 @@ public class July31st_passwordGame {
         //O index = 3
         // 3+7 = 10
         // asdOctober
+//----------------------------------------
+//        for (int i = 0; i < lowerCased.length(); i++) { // char character : Password.toCharArray()
+//
+//            for (String month : year) {
+//
+//                if (lowerCased.charAt(i) == month.charAt(0)) {
+//                    char[] comparedMonth = new char[month.length()];
+//                    int index = i;
+//                    int put = 0;
+//                    while (index < i+month.length()) {
+//                        comparedMonth[put] = lowerCased.charAt(index);
+//
+//                        put++;
+//                        index++;
+//
+//                        if (index == lowerCased.length()) {
+//                            break;
+//                        }
+//                    }
+//                    // test
+////                    for (char Character : comparedMonth) {
+////                        System.out.print(Character + ", ");
+////                    }
+////                    System.out.println("");
+//                    boolean same = true;
+//                    for (int x = 0; x < month.length(); x++) {
+//                        if (comparedMonth[x] != month.charAt(x)) {
+//                            same = false;
+//                            break;
+//                        }
+//                    }
+//                    if (same) {
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//        return false;
         return wordInPass(lowerCased, year);
 
     }
 
+    public static boolean rule_07(String Password) {
+        ArrayList<String> romanNumeral = new ArrayList<>();
+        romanNumeral.add("I");
+        romanNumeral.add("V");
+        romanNumeral.add("X");
+        romanNumeral.add("L");
+        romanNumeral.add("C");
+        romanNumeral.add("D");
+        romanNumeral.add("M");
+
+        //O index = 3
+        // 3+7 = 10
+        // asdOctober
+//----------------------------------------
+//        for (int i = 0; i < lowerCased.length(); i++) { // char character : Password.toCharArray()
+//
+//            for (String month : year) {
+//
+//                if (lowerCased.charAt(i) == month.charAt(0)) {
+//                    char[] comparedMonth = new char[month.length()];
+//                    int index = i;
+//                    int put = 0;
+//                    while (index < i+month.length()) {
+//                        comparedMonth[put] = lowerCased.charAt(index);
+//
+//                        put++;
+//                        index++;
+//
+//                        if (index == lowerCased.length()) {
+//                            break;
+//                        }
+//                    }
+//                    // test
+////                    for (char Character : comparedMonth) {
+////                        System.out.print(Character + ", ");
+////                    }
+////                    System.out.println("");
+//                    boolean same = true;
+//                    for (int x = 0; x < month.length(); x++) {
+//                        if (comparedMonth[x] != month.charAt(x)) {
+//                            same = false;
+//                            break;
+//                        }
+//                    }
+//                    if (same) {
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//        return false;
+        return wordInPass(Password, romanNumeral);
+    }
+
+
     public static boolean wordInPass(String Password, ArrayList<String> target) {
         for (int i = 0; i < Password.length(); i++) { // char character : Password.toCharArray()
 
-            for (String month : target) {
+            for (String element : target) {
 
-                if (Password.charAt(i) == month.charAt(0)) {
-                    char[] comparedMonth = new char[month.length()];
+                if (Password.charAt(i) == element.charAt(0)) {
+                    char[] comparedMonth = new char[element.length()];
                     int index = i;
                     int put = 0;
-                    while (index < i+month.length()) {
+                    while (index < i+element.length()) {
                         comparedMonth[put] = Password.charAt(index);
 
                         put++;
@@ -163,8 +263,8 @@ public class July31st_passwordGame {
 //                    }
 //                    System.out.println("");
                     boolean same = true;
-                    for (int x = 0; x < month.length(); x++) {
-                        if (comparedMonth[x] != month.charAt(x)) {
+                    for (int x = 0; x < element.length(); x++) {
+                        if (comparedMonth[x] != element.charAt(x)) {
                             same = false;
                             break;
                         }
