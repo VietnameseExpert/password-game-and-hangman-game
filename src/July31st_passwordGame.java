@@ -47,8 +47,6 @@ public class July31st_passwordGame {
         word.put("Correct", "false");
         list.add(word);
 
-//        System.out.println(rule_06("aseotemberdOtober"));
-
         boolean win = false;
         while (!win) {
             System.out.println("Enter password: ");
@@ -70,7 +68,6 @@ public class July31st_passwordGame {
                 }
             }
             listBuilder(list, urGuessList);
-            System.out.println(list);
             display(list);
         }
     }
@@ -137,22 +134,26 @@ public class July31st_passwordGame {
         //O index = 3
         // 3+7 = 10
         // asdOctober
+        return wordInPass(lowerCased, year);
 
-        for (int i = 0; i < lowerCased.length(); i++) { // char character : Password.toCharArray()
+    }
 
-            for (String month : year) {
+    public static boolean wordInPass(String Password, ArrayList<String> target) {
+        for (int i = 0; i < Password.length(); i++) { // char character : Password.toCharArray()
 
-                if (lowerCased.charAt(i) == month.charAt(0)) {
+            for (String month : target) {
+
+                if (Password.charAt(i) == month.charAt(0)) {
                     char[] comparedMonth = new char[month.length()];
                     int index = i;
                     int put = 0;
                     while (index < i+month.length()) {
-                        comparedMonth[put] = lowerCased.charAt(index);
+                        comparedMonth[put] = Password.charAt(index);
 
                         put++;
                         index++;
 
-                        if (index == lowerCased.length()) {
+                        if (index == Password.length()) {
                             break;
                         }
                     }
