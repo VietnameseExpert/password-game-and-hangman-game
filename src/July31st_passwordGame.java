@@ -13,43 +13,43 @@ public class July31st_passwordGame {
 
         HashMap<String, String> word = new HashMap<>();
         word.put("Status", "pending"); // "unlocked"
-        word.put("Description", "Your password must be at least 5 characters. ");
+        word.put("Description", "1. Your password must be at least 5 characters. ");
         word.put("Correct", "false");
         list.add(word);
 
         word = new HashMap<>(); // create a new one!
         word.put("Status", "locked");
-        word.put("Description", "Your password must include a number.");
+        word.put("Description", "2. Your password must include a number.");
         word.put("Correct", "false");
         list.add(word);
 
         word = new HashMap<>();
         word.put("Status", "locked");
-        word.put("Description", "Your password must include an uppercase letter.");
+        word.put("Description", "3. Your password must include an uppercase letter.");
         word.put("Correct", "false");
         list.add(word);
 
         word = new HashMap<>();
         word.put("Status", "locked");
-        word.put("Description", "Your password must include a special character.");
+        word.put("Description", "4. Your password must include a special character.");
         word.put("Correct", "false");
         list.add(word);
 
         word = new HashMap<>();
         word.put("Status", "locked");
-        word.put("Description", "The digits in your password must add up to 25.");
+        word.put("Description", "5. The digits in your password must add up to 25.");
         word.put("Correct", "false");
         list.add(word);
 
         word = new HashMap<>();
         word.put("Status", "locked");
-        word.put("Description", "Your password must include a month of the year.");
+        word.put("Description", "6. Your password must include a month of the year.");
         word.put("Correct", "false");
         list.add(word);
 
         word = new HashMap<>();
         word.put("Status", "locked");
-        word.put("Description", "Your password must include a roman numeral.");
+        word.put("Description", "7. Your password must include a roman numeral.");
         word.put("Correct", "false");
         list.add(word);
 
