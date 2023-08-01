@@ -70,6 +70,7 @@ public class July31st_passwordGame {
                 }
             }
             listBuilder(list, urGuessList);
+            System.out.println(list);
             display(list);
         }
     }
@@ -257,8 +258,8 @@ public class July31st_passwordGame {
         int i = 0;
         int index =0;
         HashMap<String, String> miniHashmap = (HashMap<String, String>) list.get(index);
-        while (!miniHashmap.get("Status").equals("pending")) {
-            miniHashmap = (HashMap<String, String>) list.get(index);
+        while (!miniHashmap.get("Status").equals("locked")) {
+//            miniHashmap = (HashMap<String, String>) list.get(index);
             if (miniHashmap.get("Correct").equals("true")) {
                 System.out.println(miniHashmap.get("Description") + "✅✅✅");
             }   else {
@@ -270,6 +271,7 @@ public class July31st_passwordGame {
             if (index == list.size()) {
                 break;
             }
+            miniHashmap = (HashMap<String, String>) list.get(index);
         }
         for (String description : displayList) {
             System.out.println(description);
