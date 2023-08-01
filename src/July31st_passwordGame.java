@@ -41,6 +41,14 @@ public class July31st_passwordGame {
         word.put("Correct", "false");
         list.add(word);
 
+        word = new HashMap<>();
+        word.put("Status", "locked");
+        word.put("Description", "Your password must include a month of the year.");
+        word.put("Correct", "false");
+        list.add(word);
+
+//        System.out.println(rule_06("aseotemberdOtober"));
+
         boolean win = false;
         while (!win) {
             System.out.println("Enter password: ");
@@ -52,6 +60,7 @@ public class July31st_passwordGame {
             urGuessList[2] = rule_03(urPassword);
             urGuessList[3] = rule_04(urPassword);
             urGuessList[4] = rule_05(urPassword);
+            urGuessList[5] = rule_06(urPassword);
 
             win = true;
             for (boolean x : urGuessList) {
@@ -105,6 +114,66 @@ public class July31st_passwordGame {
             }
         }
         return sum == 25;
+    }
+
+    public static boolean rule_06(String Password) {
+
+        String lowerCased = Password.toLowerCase();
+        ArrayList<String> year = new ArrayList<>();
+        year.add("january");
+        year.add("february");
+        year.add("march");
+        year.add("april");
+        year.add("may");
+        year.add("june");
+        year.add("july");
+        year.add("august");
+        year.add("september");
+        year.add("october");
+        year.add("november");
+        year.add("december");
+
+        //O index = 3
+        // 3+7 = 10
+        // asdOctober
+
+        for (int i = 0; i < lowerCased.length(); i++) { // char character : Password.toCharArray()
+
+            for (String month : year) {
+
+                if (lowerCased.charAt(i) == month.charAt(0)) {
+                    char[] comparedMonth = new char[month.length()];
+                    int index = i;
+                    int put = 0;
+                    while (index < i+month.length()) {
+                        comparedMonth[put] = lowerCased.charAt(index);
+
+                        put++;
+                        index++;
+
+                        if (index == lowerCased.length()) {
+                            break;
+                        }
+                    }
+                    // test
+//                    for (char Character : comparedMonth) {
+//                        System.out.print(Character + ", ");
+//                    }
+//                    System.out.println("");
+                    boolean same = true;
+                    for (int x = 0; x < month.length(); x++) {
+                        if (comparedMonth[x] != month.charAt(x)) {
+                            same = false;
+                            break;
+                        }
+                    }
+                    if (same) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public static void listBuilder (ArrayList<HashMap<String, String>> list, Boolean[] rule) {
