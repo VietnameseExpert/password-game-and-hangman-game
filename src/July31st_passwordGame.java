@@ -138,47 +138,6 @@ public class July31st_passwordGame {
         year.add("november");
         year.add("december");
 
-        //O index = 3
-        // 3+7 = 10
-        // asdOctober
-//----------------------------------------
-//        for (int i = 0; i < lowerCased.length(); i++) { // char character : Password.toCharArray()
-//
-//            for (String month : year) {
-//
-//                if (lowerCased.charAt(i) == month.charAt(0)) {
-//                    char[] comparedMonth = new char[month.length()];
-//                    int index = i;
-//                    int put = 0;
-//                    while (index < i+month.length()) {
-//                        comparedMonth[put] = lowerCased.charAt(index);
-//
-//                        put++;
-//                        index++;
-//
-//                        if (index == lowerCased.length()) {
-//                            break;
-//                        }
-//                    }
-//                    // test
-////                    for (char Character : comparedMonth) {
-////                        System.out.print(Character + ", ");
-////                    }
-////                    System.out.println("");
-//                    boolean same = true;
-//                    for (int x = 0; x < month.length(); x++) {
-//                        if (comparedMonth[x] != month.charAt(x)) {
-//                            same = false;
-//                            break;
-//                        }
-//                    }
-//                    if (same) {
-//                        return true;
-//                    }
-//                }
-//            }
-//        }
-//        return false;
         return wordInPass(lowerCased, year);
 
     }
@@ -193,47 +152,6 @@ public class July31st_passwordGame {
         romanNumeral.add("D");
         romanNumeral.add("M");
 
-        //O index = 3
-        // 3+7 = 10
-        // asdOctober
-//----------------------------------------
-//        for (int i = 0; i < lowerCased.length(); i++) { // char character : Password.toCharArray()
-//
-//            for (String month : year) {
-//
-//                if (lowerCased.charAt(i) == month.charAt(0)) {
-//                    char[] comparedMonth = new char[month.length()];
-//                    int index = i;
-//                    int put = 0;
-//                    while (index < i+month.length()) {
-//                        comparedMonth[put] = lowerCased.charAt(index);
-//
-//                        put++;
-//                        index++;
-//
-//                        if (index == lowerCased.length()) {
-//                            break;
-//                        }
-//                    }
-//                    // test
-////                    for (char Character : comparedMonth) {
-////                        System.out.print(Character + ", ");
-////                    }
-////                    System.out.println("");
-//                    boolean same = true;
-//                    for (int x = 0; x < month.length(); x++) {
-//                        if (comparedMonth[x] != month.charAt(x)) {
-//                            same = false;
-//                            break;
-//                        }
-//                    }
-//                    if (same) {
-//                        return true;
-//                    }
-//                }
-//            }
-//        }
-//        return false;
         return wordInPass(Password, romanNumeral);
     }
 
@@ -257,11 +175,6 @@ public class July31st_passwordGame {
                             break;
                         }
                     }
-                    // test
-//                    for (char Character : comparedMonth) {
-//                        System.out.print(Character + ", ");
-//                    }
-//                    System.out.println("");
                     boolean same = true;
                     for (int x = 0; x < element.length(); x++) {
                         if (comparedMonth[x] != element.charAt(x)) {
