@@ -87,7 +87,7 @@ public class July31st_passwordGame {
         char[] passChars = Password.toCharArray();
         for (char character : passChars) {
             try {
-                int num = Integer.parseInt(String.valueOf(character));
+                Integer.parseInt(String.valueOf(character));
                 return true;
             } catch (NumberFormatException nfe) {
                 skip();
@@ -121,39 +121,36 @@ public class July31st_passwordGame {
         return sum == 25;
     }
 
-    public static boolean rule_06(String Password) {
+    public static boolean rule_06(String password) {
+        String lowerCased = password.toLowerCase();
+        String[] months = {
+            "january", 
+            "february",
+            "march",
+            "april",
+            "may",
+            "june",
+            "july",
+            "august",
+            "september",
+            "october",
+            "november",
+            "december"
+        };
 
-        String lowerCased = Password.toLowerCase();
-        ArrayList<String> year = new ArrayList<>();
-        String[] months = {"january", "february","march","april","may","june","july","august","september","october","november","december",};
-//        year.add("january");
-//        year.add("february");
-//        year.add("march");
-//        year.add("april");
-//        year.add("may");
-//        year.add("june");
-//        year.add("july");
-//        year.add("august");
-//        year.add("september");
-//        year.add("october");
-//        year.add("november");
-//        year.add("december");
+        for (String month : months) {
+            if (lowerCased.indexOf(month) >= 0) {
+                return true;
+            }
+        }
 
-        return wordInPass(lowerCased, months);
-
+        return false;
+        // return wordInPass(lowerCased, months);
     }
 
-    public static boolean rule_07(String Password) {
+    public static boolean rule_07(String password) {
         String[] romanNumeral = {"I", "V", "X", "L", "C", "D", "M"};
-//        romanNumeral.add("I");
-//        romanNumeral.add("V");
-//        romanNumeral.add("X");
-//        romanNumeral.add("L");
-//        romanNumeral.add("C");
-//        romanNumeral.add("D");
-//        romanNumeral.add("M");
-
-        return wordInPass(Password, romanNumeral);
+        return wordInPass(password, romanNumeral);
     }
 
 
@@ -192,7 +189,7 @@ public class July31st_passwordGame {
         return false;
     }
 
-    public static void listBuilder (ArrayList<HashMap<String, String>> list, Boolean[] rule) {
+    public static void listBuilder(ArrayList<HashMap<String, String>> list, Boolean[] rule) {
         HashMap<String, String> editHash = new HashMap<>();
 
         int streak = 0;
