@@ -71,9 +71,6 @@ public class July31st_passwordGame {
             for (boolean x : urGuessList) {
                 if (!x) {
                     win = false;
-                    // win!
-                    System.out.println("You win");
-                    input.close();
                     break;
                 }
             }
@@ -90,7 +87,7 @@ public class July31st_passwordGame {
         char[] passChars = Password.toCharArray();
         for (char character : passChars) {
             try {
-                int num = Integer.parseInt(String.valueOf(character));
+                Integer.parseInt(String.valueOf(character));
                 return true;
             } catch (NumberFormatException nfe) {
                 skip();
@@ -141,7 +138,13 @@ public class July31st_passwordGame {
             "december"
         };
 
-        return 
+        for (String month : months) {
+            if (lowerCased.indexOf(month) >= 0) {
+                return true;
+            }
+        }
+
+        return false;
         // return wordInPass(lowerCased, months);
     }
 
