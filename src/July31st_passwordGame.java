@@ -125,38 +125,39 @@ public class July31st_passwordGame {
 
         String lowerCased = Password.toLowerCase();
         ArrayList<String> year = new ArrayList<>();
-        year.add("january");
-        year.add("february");
-        year.add("march");
-        year.add("april");
-        year.add("may");
-        year.add("june");
-        year.add("july");
-        year.add("august");
-        year.add("september");
-        year.add("october");
-        year.add("november");
-        year.add("december");
+        String[] months = {"january", "february","march","april","may","june","july","august","september","october","november","december",};
+//        year.add("january");
+//        year.add("february");
+//        year.add("march");
+//        year.add("april");
+//        year.add("may");
+//        year.add("june");
+//        year.add("july");
+//        year.add("august");
+//        year.add("september");
+//        year.add("october");
+//        year.add("november");
+//        year.add("december");
 
-        return wordInPass(lowerCased, year);
+        return wordInPass(lowerCased, months);
 
     }
 
     public static boolean rule_07(String Password) {
-        ArrayList<String> romanNumeral = new ArrayList<>();
-        romanNumeral.add("I");
-        romanNumeral.add("V");
-        romanNumeral.add("X");
-        romanNumeral.add("L");
-        romanNumeral.add("C");
-        romanNumeral.add("D");
-        romanNumeral.add("M");
+        String[] romanNumeral = {"I", "V", "X", "L", "C", "D", "M"};
+//        romanNumeral.add("I");
+//        romanNumeral.add("V");
+//        romanNumeral.add("X");
+//        romanNumeral.add("L");
+//        romanNumeral.add("C");
+//        romanNumeral.add("D");
+//        romanNumeral.add("M");
 
         return wordInPass(Password, romanNumeral);
     }
 
 
-    public static boolean wordInPass(String Password, ArrayList<String> target) {
+    public static boolean wordInPass(String Password, String[] target) {
         for (int i = 0; i < Password.length(); i++) { // char character : Password.toCharArray()
 
             for (String element : target) {
