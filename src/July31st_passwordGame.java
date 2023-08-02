@@ -55,7 +55,7 @@ public class July31st_passwordGame {
 
         boolean win = false;
         while (!win) {
-            System.out.println("Enter password: ");
+            System.out.println("\nEnter password: ");
             urPassword = input.nextLine();
 
             Boolean[] urGuessList = new Boolean[list.size()];
@@ -68,20 +68,28 @@ public class July31st_passwordGame {
             urGuessList[6] = rule_07(urPassword);
 
             win = true;
-            for (boolean x : urGuessList) {
-                if (!x) {
+            // if the password does not meet one of the rules
+            // Win = false (game is set default to win) --> continue playing
+            for (boolean ruleMet : urGuessList) {
+                if (!ruleMet) {
                     win = false;
-                    break;
                 }
             }
+
+            if (win) {
+                System.out.println("Valid Password\n");
+            }   else {
+                System.out.println("Invalid Password\n");
+            }
+
             listBuilder(list, urGuessList);
             display(list);
+            System.out.println("-------------------------------------------------");
         }
     }
 
     public static boolean rule_01(String Password) {
-        Password.replace(" ", "");
-        return Password.length() >= 5;
+        return Password.replace(" ", "").length() >= 5;
     }
     public static boolean rule_02(String Password) {
         char[] passChars = Password.toCharArray();
@@ -139,7 +147,7 @@ public class July31st_passwordGame {
         };
 
         for (String month : months) {
-            if (lowerCased.indexOf(month) >= 0) {
+            if (lowerCased.contains(month)) {
                 return true;
             }
         }
