@@ -53,6 +53,12 @@ public class July31st_passwordGame {
         word.put("Correct", "false");
         list.add(word);
 
+        word = new HashMap<>();
+        word.put("Status", "locked");
+        word.put("Description", "Your password must include one of our sponsors (Pepsi, Starbucks, Shell):");
+        word.put("Correct", "false");
+        list.add(word);
+
         boolean win = false;
         while (!win) {
             System.out.println("\nEnter password: ");
@@ -66,6 +72,7 @@ public class July31st_passwordGame {
             urGuessList[4] = rule_05(urPassword);
             urGuessList[5] = rule_06(urPassword);
             urGuessList[6] = rule_07(urPassword);
+            urGuessList[7] = rule_08(urPassword);
 
             win = true;
             // if the password does not meet one of the rules
@@ -162,6 +169,17 @@ public class July31st_passwordGame {
         return wordInPass(password, romanNumeral);
     }
 
+    public static boolean rule_08(String password) {
+        String lowerCased = password.toLowerCase();
+
+        String[] sponsors = {"pepsi", "starbucks", "shell"};
+        for (String sponsor : sponsors) {
+            if (lowerCased.contains(sponsor)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static boolean wordInPass(String Password, String[] target) {
         for (int i = 0; i < Password.length(); i++) { // char character : Password.toCharArray()
