@@ -73,6 +73,7 @@ public class July31st_passwordGame {
             for (boolean ruleMet : urGuessList) {
                 if (!ruleMet) {
                     win = false;
+                    break;
                 }
             }
 
@@ -198,7 +199,7 @@ public class July31st_passwordGame {
     }
 
     public static void listBuilder(ArrayList<HashMap<String, String>> list, Boolean[] rule) {
-        HashMap<String, String> editHash = new HashMap<>();
+        HashMap<String, String> editHash;
 
         int streak = 0;
         while (rule[streak].equals(true)) {
@@ -209,17 +210,17 @@ public class July31st_passwordGame {
         }
 
         int pendingPos = 0;
-        HashMap<String, String> miniHashmap = (HashMap<String, String>) list.get(pendingPos);
+        HashMap<String, String> miniHashmap = list.get(pendingPos);
         while (!miniHashmap.get("Status").equals("pending")) {
             pendingPos++;
-            miniHashmap = (HashMap<String, String>) list.get(pendingPos);
+            miniHashmap = list.get(pendingPos);
         }
 
         int posToPend = Math.max(streak, pendingPos);
 
         if (posToPend < list.size()) {
             editHash = new HashMap<>();
-            miniHashmap = (HashMap<String, String>) list.get(posToPend);
+            miniHashmap = list.get(posToPend);
             editHash.put("Status", "pending");
             editHash.put("Description", miniHashmap.get("Description"));
             editHash.put("Correct", miniHashmap.get("Correct"));
@@ -228,7 +229,7 @@ public class July31st_passwordGame {
 
         int index = 0;
         while (index < posToPend) {
-            miniHashmap = (HashMap<String, String>) list.get(index);
+            miniHashmap = list.get(index);
             editHash = new HashMap<>();
 
             editHash.put("Status", "unlocked");
@@ -248,10 +249,10 @@ public class July31st_passwordGame {
 
         // key: Correct;
         index = 0;
-        miniHashmap = (HashMap<String, String>) list.get(index);
+        miniHashmap = list.get(index);
         while (!miniHashmap.get("Status").equals("locked")) {
 
-            miniHashmap = (HashMap<String, String>) list.get(index);
+            miniHashmap = list.get(index);
             if (rule[index]) {
                 editHash = new HashMap<>();
                 editHash.put("Status", miniHashmap.get("Status"));
@@ -277,7 +278,7 @@ public class July31st_passwordGame {
         ArrayList<String> displayList = new ArrayList<>();
         int i = 0;
         int index =0;
-        HashMap<String, String> miniHashmap = (HashMap<String, String>) list.get(index);
+        HashMap<String, String> miniHashmap = list.get(index);
         while (!miniHashmap.get("Status").equals("locked")) {
 //            miniHashmap = (HashMap<String, String>) list.get(index);
             if (miniHashmap.get("Correct").equals("true")) {
@@ -291,7 +292,7 @@ public class July31st_passwordGame {
             if (index == list.size()) {
                 break;
             }
-            miniHashmap = (HashMap<String, String>) list.get(index);
+            miniHashmap = list.get(index);
         }
         for (String description : displayList) {
             System.out.println(description);
